@@ -8,6 +8,13 @@
   ==============================================================================
 */
 
+
+/*
+TODO:
+    1.click anywhere and create a note
+    2.click and drag to change pitch
+
+*/
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
