@@ -150,12 +150,30 @@ void Pfmproject0newAudioProcessor::processBlock (AudioBuffer<float>& buffer, Mid
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
+    /*
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         auto* channelData = buffer.getWritePointer (channel);
 
         // ..do something to the data...
     }
+    */
+    Random r;
+    for (int i = 0; i < buffer.getNumSamples(); ++i)
+    {
+        for (int channel = 0; channel < buffer.getNumChannels(); ++channel)
+        {
+            if (shouldPlaySound)
+            {
+                buffer.setSample(channel, i, (r.nextFloat() * 0.005));
+            }
+            else
+            {
+                buffer.setSample(channel, i, 0);
+            }
+        }
+    }
+
 }
 
 //==============================================================================
